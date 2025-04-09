@@ -1,11 +1,10 @@
 # Projects
 
-- Home  
-- About  
-- Skills  
-- Projects  
-- Experience  
-- Contact  
+- [Home](index.md)  
+- [About](about.md) 
+- [Skills](skills.md)  
+- [Projects](projects.md)  
+- [Experience](expirience.md) 
 
 ## Project Highlights
 
