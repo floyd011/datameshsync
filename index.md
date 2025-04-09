@@ -1,15 +1,14 @@
-# Welcome to the Portfolio of Milorad Spasić
+# Welcome to the Portfolio of DataMeshSync
 
-- Home  
-- About  
-- Skills  
-- Projects  
-- Experience  
-- Contact  
+- [Home](index.md)  
+- [About](about.md) 
+- [Skills](skills.md)  
+- [Projects](projects.md)  
+- [Experience](expirience.md) 
 
-## Data Engineer & Database Architect
+## Data Engineering & Database Architecture
 
-A seasoned Data Engineer, DevOps Engineer, and Database Architect with two decades of experience in designing, optimizing, and managing high-performance data systems. The focus is on developing reliable data pipelines, architecting scalable and resilient databases, and deploying cloud-native solutions to enable real-time analytics and enterprise-level data processing.
+A seasoned Data Engineers, DevOps Engineers, and Database Architects with two decades of experience in designing, optimizing, and managing high-performance data systems. The focus is on developing reliable data pipelines, architecting scalable and resilient databases, and deploying cloud-native solutions to enable real-time analytics and enterprise-level data processing.
 
 ### Core Expertise
 
@@ -20,7 +19,7 @@ A seasoned Data Engineer, DevOps Engineer, and Database Architect with two decad
   Over 20 years of experience managing SQL Server, PostgreSQL, and distributed databases, with deep expertise in query optimization, high availability configurations, and disaster recovery strategies.
 
 - **DevOps & Cloud Solutions:**  
-  Expertise in Docker, Kubernetes, Terraform, Ansible, and cloud platforms such as AWS and GCP. Skilled in implementing infrastructure as code (IaC) and building efficient CI/CD pipelines.
+  10+ years expertise in Docker, Kubernetes, Terraform, Ansible, and cloud platforms such as AWS and GCP. Skilled in implementing infrastructure as code (IaC) and building efficient CI/CD pipelines.
 
 - **Microservices & Automation:**  
   Development of containerized, event-driven microservices and adoption of GitOps workflows for building scalable and resilient data platforms.
