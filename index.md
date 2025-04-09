@@ -4,7 +4,8 @@
 - [About](about.md) 
 - [Skills](skills.md)  
 - [Projects](projects.md)  
-- [Experience](expirience.md) 
+- [Experience](expirience.md)
+- [Contact](#contact)
 
 ## Data Engineering & Database Architecture
 
@@ -35,3 +36,7 @@ A seasoned Data Engineers, DevOps Engineers, and Database Architects with two de
 - Architected cloud-based data solutions that enhanced scalability, operational efficiency, and cost-effectiveness.
 
 This portfolio reflects a results-oriented engineering approach focused on data-driven innovation, cloud transformation, and automation—bridging the gap between data, DevOps, and engineering excellence.
+
+### Contact
+
+[DataMeshSync](mailto:engine@datameshsync.info)
