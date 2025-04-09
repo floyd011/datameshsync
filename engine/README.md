@@ -95,5 +95,5 @@ Innovative algorithms and modern data streaming solutions are addressing these c
 
 ## Contact 
 
-[**Datamesh sync**](mailto:dbdeveloperexpert@gmail.com)
+[**DataMeshSync**](mailto:engine@datameshsync.info)
 
