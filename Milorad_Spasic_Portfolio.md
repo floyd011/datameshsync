@@ -1,6 +1,6 @@
 # Welcome to the Portfolio of Milorad Spasić
 
-[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
 ## Data Engineer & Database Architect
 
@@ -36,7 +36,7 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 # Skills
 
-[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
 ## Technical Skills
 
@@ -61,7 +61,84 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 - **Data Architecture:**  
   Event-driven architecture, Microservices, Real-time data processing pipelines  
 
+## Data Engineer
+
+10+ years of experience in data engineering, with a strong emphasis on building robust data pipelines using Python for automation and scripting, combined with advanced SQL skills for querying, optimizing, and managing relational databases.
+Designing and implementing modern data architectures, with a strong focus on scalability, performance, and availability. This includes expertise in key architectural components such as cloud storage, distributed computing frameworks, and streaming or batch data processing pipelines to enable robust, flexible, and efficient data solutions.
+
+## Database architect and database engineer/developer 
+
+25+ years of experience in Administrating and working mostly on highly transactional relational databases (SQL Server, PostgreSQL).
+- Proficiency in ETL/ELT data pipeline with Debezium and Kafka to analytic databases Greenplum, Vertica, Hadoop.
+- Proficiency programming in Python.
+
+## DevOps Engineer
+
+- Proficiency with containerization and orchestration technologies such as **Docker** and **Kubernetes**.
+- Experience working with **Helm**.
+- Experience working with cloud **AWS**, **GCP**.
+- Proficiency with configuration management tools like **Ansible** and **Terraform**.
+- Understanding of **CI/CD** principles and **GitOps* practices.
+- Proficiency in administering databases like **PostgreSQL**, **MS SQL**.
+- Experience with network protocols (TCP, IP, UDP), and routing protocols.
+- Proficiency in programming in **Python** and scripting in **Bash**.
+- Proficiency in **Linux**.
+
+## Database Management Systems (DBMS)
+
+- Microsoft SQL Server (2000 - Latest Version)
+- PostgreSQL (9.6 - Latest Version)
+
+## Database Development & Optimization
+
+- Complex stored procedures, functions, triggers, and views
+- Advanced indexing strategies (Clustered, Non-Clustered, Full-Text, JSON/GIN Indexes)
+- Query tuning and optimization (Execution Plans, Query Store, Hints, Statistics)
+- Partitioning strategies for large datasets
+- Columnstore and in-memory OLTP optimization
+
+## Database Programming & Query Languages
+
+- **T-SQL** (Microsoft SQL Server)
+- **PL/SQL** (Oracle)
+- **PL/PGSQL** (PostgreSQL)
+
+## High Availability & Disaster Recovery
+
+- Always On Availability Groups (SQL Server)
+- Log shipping, database mirroring, and replication
+- Failover Clustering (Windows and PostgreSQL)
+- PITR (Point-in-Time Recovery) and WAL archiving (PostgreSQL)
+- Backup strategies (Full, Differential, Incremental, PITR, Snapshots)
+
+## Security & Compliance
+
+- Role-based access control (RBAC) and fine-grained permissions
+- Transparent Data Encryption (TDE) and row-level security
+- Dynamic Data Masking & Always Encrypted (SQL Server)
+- Data auditing, GDPR 
+- Secure database configurations and vulnerability assessments
+
+## ETL & Data Integration
+
+- SQL Server Integration Services (SSIS)
+- PostgreSQL Foreign Data Wrappers (FDW)
+- Data migration & transformation (ETL pipelines, CDC, bulk inserts)
+- JSON, XML, and CSV data handling
+
+## Infrastructure & Automation
+
+- Scripting automation with Python and Bash
+- Database infrastructure as code (IaC) using Terraform
+- Containerization with Docker for PostgreSQL
+- Cloud database management (Azure SQL, Amazon RDS, Google Cloud SQL)
+- Database monitoring with Prometheus, Grafana, and SQL Server Profiler
+
+----
+
 ## Certifications
+
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
 - HP ASE – Vertica Big Data Solutions Administrator  
 - Pivotal Greenplum Database Administrator  
@@ -72,7 +149,7 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 # Projects
 
-[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
 ## Project Highlights
 
@@ -112,7 +189,7 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 # Experience
 
-[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
 ## Professional Experience
 
@@ -151,7 +228,7 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 # Contact
 
-[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
   - email: [Milorad Spasic](mailto:milorad.spasic@datameshsync.info)
   - Linkedin: [Linkedin](https://www.linkedin.com/in/milorad-spasic)
