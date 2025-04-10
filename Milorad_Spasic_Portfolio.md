@@ -1,11 +1,6 @@
 # Welcome to the Portfolio of Milorad Spasić
 
-- Home  
-- About  
-- Skills  
-- Projects  
-- Experience  
-- Contact  
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
 
 ## Data Engineer & Database Architect
 
@@ -41,12 +36,7 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 # Skills
 
-- Home  
-- About  
-- Skills  
-- Projects  
-- Experience  
-- Contact  
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
 
 ## Technical Skills
 
@@ -82,12 +72,7 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 # Projects
 
-- Home  
-- About  
-- Skills  
-- Projects  
-- Experience  
-- Contact  
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
 
 ## Project Highlights
 
@@ -127,12 +112,7 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 # Experience
 
-- Home  
-- About  
-- Skills  
-- Projects  
-- Experience  
-- Contact  
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
 
 ## Professional Experience
 
@@ -166,3 +146,12 @@ This portfolio reflects a results-oriented engineering approach focused on data-
 
 - Designed and optimized end-to-end pipelines capable of handling high-volume, real-time analytical workloads.  
 - Ensured seamless integration between source systems, streaming platforms, and the Greenplum analytical database.
+
+---
+
+# Contact
+
+[Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Contact](#contact)
+
+  - email: [Milorad Spasic](mailto:milorad.spasic@datameshsync.info)
+  - Linkedin: [Linkedin](https://www.linkedin.com/in/milorad-spasic)
