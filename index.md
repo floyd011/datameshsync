@@ -1,3 +1,7 @@
+---
+layout: default
+title: "Portfolio of Milorad Spasić"
+---
 # Welcome to the Portfolio of DataMeshSync
 
 - [Home](index.md)  
