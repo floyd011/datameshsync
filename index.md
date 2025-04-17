@@ -4,7 +4,7 @@ title: "Portfolio of Milorad Spasić"
 ---
 # Welcome to the Portfolio of DataMeshSync
 
-[Home](index.md) &nbsp; &nbsp; [About](about.md) &nbsp; &nbsp;[Skills](skills.md) &nbsp; &nbsp;[Projects](projects.md) &nbsp; &nbsp;[Experience](expirience.md) &nbsp; &nbsp;[Contact](#contact)
+[Home](index.md) &nbsp; &nbsp; [About](about.md) &nbsp; &nbsp;[Skills](skills.md) &nbsp; &nbsp;[Projects](projects.md) &nbsp; &nbsp;[Experience](expirience.md)
 
 ## Data Engineering & Database Architecture
 
