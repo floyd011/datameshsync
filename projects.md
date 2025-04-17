@@ -1,10 +1,6 @@
 # Projects
 
-- [Home](index.md)  
-- [About](about.md) 
-- [Skills](skills.md)  
-- [Projects](projects.md)  
-- [Experience](expirience.md) 
+[Home](index.md) &nbsp; &nbsp; [About](about.md) &nbsp; &nbsp;[Skills](skills.md) &nbsp; &nbsp;[Projects](projects.md) &nbsp; &nbsp;[Experience](expirience.md) &nbsp; &nbsp;[Contact](#contact)
 
 ## Project Highlights
 
