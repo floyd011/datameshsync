@@ -6,7 +6,7 @@ title: "Portfolio of Milorad Spasić"
 
 [Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
-## Data Engineer & Database Architect
+## Data Engineer & Database Architect & Solution Architect – Cloud & Integration Specialist
 
 A seasoned Data Engineer, DevOps Engineer, and Database Architect with two decades of experience in designing, optimizing, and managing high-performance data systems. The focus is on developing reliable data pipelines, architecting scalable and resilient databases, and deploying cloud-native solutions to enable real-time analytics and enterprise-level data processing.
 
@@ -33,8 +33,9 @@ A seasoned Data Engineer, DevOps Engineer, and Database Architect with two decad
 - Optimized high-throughput transactional databases for enterprise clients, achieving up to 60% reduction in query execution times and improved system resilience.  
 - Led seamless migrations from Microsoft SQL Server to PostgreSQL, ensuring minimal downtime and data integrity throughout the transition.  
 - Architected cloud-based data solutions that enhanced scalability, operational efficiency, and cost-effectiveness.
+- Solution Architect with over 10 years of experience in data engineering and architecture, delivering end-to-end solutions that support real-time analytics, big data processing, and seamless cloud/on-premise integration. Formerly a Senior Data Engineer, now responsible for defining high-level data strategies, designing reference architectures, and guiding engineering teams in implementing secure and maintainable systems.
 
-This portfolio reflects a results-oriented engineering approach focused on data-driven innovation, cloud transformation, and automation—bridging the gap between data, DevOps, and engineering excellence.
+This portfolio showcases a blend of cloud-native development on AWS and hybrid integration with on-premise infrastructure, emphasizing performance, data quality, and long-term maintainability.
 
 ---
 
