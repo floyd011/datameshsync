@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Portfolio of Milorad Spasić"
+title: "Portfolio of DataMeshSync"
 ---
 # Welcome to the Portfolio of DataMeshSync
 
