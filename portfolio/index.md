@@ -1,3 +1,7 @@
+---
+layout: default
+title: "Portfolio of Milorad Spasić"
+---
 # Welcome to the Portfolio of Milorad Spasić
 
 [Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
