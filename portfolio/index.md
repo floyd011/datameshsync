@@ -1,7 +1,3 @@
----
-layout: default
-title: "Portfolio of Milorad Spasić"
----
 # Welcome to the Portfolio of Milorad Spasić
 
 [Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
@@ -234,5 +230,5 @@ Designing and implementing modern data architectures, with a strong focus on sca
 
 [Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
-  - eMail: [Milorad Spasic](mailto:milorad.spasic@datameshsync.info)
-  - Company: [DataMeshSync](https://www.linkedin.com/company/datamesh-sync/?viewAsMember=true)
+  - email: [Milorad Spasic](mailto:milorad.spasic@datameshsync.info)
+  - Linkedin: [Linkedin](https://www.linkedin.com/in/milorad-spasic)
