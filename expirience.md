@@ -4,6 +4,21 @@
 
 ## Professional Experience
 
+### AI Agents & Multi-Agent Systems
+
+-Designed LangChain-based multi-agent pipelines for task decomposition, coordination, and reasoning. Focused on agent orchestration for knowledge-intensive tasks.
+  
+### NLP & Transformers
+  
+- Experience with tokenization, embeddings, and transformer architecture (HuggingFace, PyTorch). Able to train and evaluate models for intelligent document processing and NLP automation tasks.
+- 
+### Local LLM Integration (LLaMA + Ollama)
+
+- Deployed a fine-tuned version of LLaMA 3 using LoRA/QLoRA for specialization in   documentation-based search tasks.
+- The model is served locally via Ollama, exposing a simple HTTP API.
+- Input prompt includes top-k document chunks retrieved from Qdrant + user query → model generates the final answer or summary.
+- Training used a custom instruction dataset based on the ingested PDF corpus.
+
 ### 1. Database Change Data Capture (CDC) with Debezium
 
 - Implemented Change Data Capture (CDC) pipelines using Debezium to capture real-time changes from relational databases such as Microsoft SQL Server, MySQL, Oracle, and PostgreSQL.  
