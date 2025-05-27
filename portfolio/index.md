@@ -70,33 +70,33 @@ This portfolio showcases a blend of cloud-native development on AWS and hybrid i
 
 ## Technical Skills
 
-- **AI/ LLM Integration Skills:**
+### AI/ LLM Integration Skills
 
 - Building local/private RAG systems
 - Developing lightweight, adaptable AI agents
 - Integrating LLMs into intelligent document workflows
 - Optimizing models for on-device or serverless use
 	
-- **Data Integration Tools:**  
-  Debezium, Kafka  
+### Data Integration Tools
+- Debezium, Kafka  
 
-- **Databases:**  
-  Microsoft SQL Server, MySQL, Oracle, PostgreSQL, Vertica, Greenplum  
+### Databases
+- Microsoft SQL Server, MySQL, Oracle, PostgreSQL, Vertica, Greenplum  
 
-- **Programming Languages:**  
-  Python (data processing and pipeline orchestration), Bash  
+### Programming Languages
+- Python (data processing and pipeline orchestration), SQL, Bash  
 
-- **Containerization & Orchestration:**  
-  Docker, Kubernetes  
+### Containerization & Orchestration
+- Docker, Kubernetes  
 
-- **CI/CD and Infrastructure as Code:**  
-  GitHub Actions, Ansible, Terraform, Pulumi  
+### Infrastructure as Code
+- Ansible, Terraform, Pulumi  
 
-- **Monitoring & Logging:**  
-  Prometheus, Grafana, Graylog  
+### Monitoring & Logging
+- Prometheus, Grafana, Graylog  
 
-- **Data Architecture:**  
-  Event-driven architecture, Microservices, Real-time data processing pipelines  
+### Data Architecture
+- Event-driven architecture, Microservices, Real-time data processing pipelines  
 
 ## Data Engineer
 
