@@ -70,10 +70,12 @@ This portfolio showcases a blend of cloud-native development on AWS and hybrid i
 
 ## Technical Skills
 
-- **AI/ LLM Integration Tools:**  
-  - Python, PyTorch, HuggingFace, LangChain
-  - Qdrant, Ollama, LLaMA3, Gemma, OpenAI, GGUF, LoRA/QLoRA
-  - NLP,KeyBERT
+- **AI/ LLM Integration Skills:**
+
+- Building local/private RAG systems
+- Developing lightweight, adaptable AI agents
+- Integrating LLMs into intelligent document workflows
+- Optimizing models for on-device or serverless use
 	
 - **Data Integration Tools:**  
   Debezium, Kafka  
