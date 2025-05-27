@@ -2,6 +2,14 @@
 
 [Home](index.md) &nbsp; &nbsp; [About](about.md) &nbsp; &nbsp;[Skills](skills.md) &nbsp; &nbsp;[Projects](projects.md) &nbsp; &nbsp;[Experience](expirience.md)
 
+## AI/LLM Engineering & Data & AI Integration
+
+- Experienced AI Engineer specializing in Large Language Model (LLM) development and deployment with strong expertise in transformer architectures, fine-tuning techniques (LoRA, QLoRA), and Retrieval-Augmented Generation (RAG) systems.
+
+- Proficient in building end-to-end AI pipelines, including data ingestion, embedding generation, vector search using Qdrant, and RESTful API integration via FastAPI and Streamlit. Skilled in prompt engineering and developing multi-agent orchestration systems using LangChain for complex, knowledge-driven workflows.
+
+- Focused on scalable, production-ready AI solutions that integrate intelligent document processing, semantic search, and dynamic response generation.
+- 
 ## Data Engineering
 
 - Over 10 years of experience in data engineering, with a strong emphasis on developing robust data pipelines using Python for automation and scripting, combined with advanced SQL expertise for querying, optimization, and relational database management.  
