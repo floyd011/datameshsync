@@ -70,7 +70,7 @@ This portfolio showcases a blend of cloud-native development on AWS and hybrid i
 
 ## Technical Skills
 
-### AI/ LLM Integration Skills
+## AI/LLM engineer & Data/AI integrator
 
 - Building local/private RAG systems
 - Developing lightweight, adaptable AI agents
@@ -87,7 +87,7 @@ This portfolio showcases a blend of cloud-native development on AWS and hybrid i
 - Python (data processing and pipeline orchestration), SQL, Bash  
 
 ### Containerization & Orchestration
-- Docker, Kubernetes  
+- Docker, Kubernetes
 
 ### Infrastructure as Code
 - Ansible, Terraform, Pulumi  
