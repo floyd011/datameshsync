@@ -4,6 +4,13 @@
 
 ## Technical Skills
 
+- **AI/LLM engineer & Data/AI integrator**
+
+- Building local/private RAG systems
+- Developing lightweight, adaptable AI agents
+- Integrating LLMs into intelligent document workflows
+- Optimizing models for on-device or serverless use
+
 - **Data Integration Tools:**  
   Debezium, Kafka  
 
