@@ -4,7 +4,7 @@
 
 ## Technical Skills
 
-- **AI/LLM engineer & Data/AI integrator**
+- **AI/LLM engineering & Data/AI integration**
 
 - Building local/private RAG systems
 - Developing lightweight, adaptable AI agents
