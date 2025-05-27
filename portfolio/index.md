@@ -39,7 +39,7 @@ A seasoned Data Engineer with two decades of experience in designing, optimizing
   Over 20 years of experience managing SQL Server, PostgreSQL, and distributed databases, with deep expertise in query optimization, high availability configurations, and disaster recovery strategies.
 
 - **DevOps & Cloud Solutions:**  
-  Expertise in Docker, Kubernetes, Terraform, Ansible, and cloud platforms such as AWS and GCP. Skilled in implementing infrastructure as code (IaC) and building efficient CI/CD pipelines.
+  Expertise in Docker, Kubernetes, Terraform, Ansible, and cloud platforms such as AWS.
 
 - **Microservices & Automation:**  
   Development of containerized, event-driven microservices and adoption of GitOps workflows for building scalable and resilient data platforms.
@@ -106,18 +106,6 @@ Designing and implementing modern data architectures, with a strong focus on sca
 25+ years of experience in Administrating and working mostly on highly transactional relational databases (SQL Server, PostgreSQL).
 - Proficiency in ETL/ELT data pipeline with Debezium and Kafka to analytic databases Greenplum, Vertica, Hadoop.
 - Proficiency programming in Python.
-
-## DevOps Engineer
-
-- Proficiency with containerization and orchestration technologies such as **Docker** and **Kubernetes**.
-- Experience working with **Helm**.
-- Experience working with cloud **AWS**, **GCP**.
-- Proficiency with configuration management tools like **Ansible** and **Terraform**.
-- Understanding of **CI/CD** principles and **GitOps* practices.
-- Proficiency in administering databases like **PostgreSQL**, **MS SQL**.
-- Experience with network protocols (TCP, IP, UDP), and routing protocols.
-- Proficiency in programming in **Python** and scripting in **Bash**.
-- Proficiency in **Linux**.
 
 ## Database Management Systems (DBMS)
 
