@@ -6,6 +6,12 @@ title: "Portfolio of DataMeshSync"
 
 [Home](index.md) &nbsp; &nbsp; [About](about.md) &nbsp; &nbsp;[Skills](skills.md) &nbsp; &nbsp;[Projects](projects.md) &nbsp; &nbsp;[Experience](expirience.md)
 
+## AI/LLM Engineering & Data & AI Integration
+
+Experienced AI Engineering specializing in Large Language Model (LLM) development and deployment with strong expertise in transformer architectures, fine-tuning techniques (LoRA, QLoRA), and Retrieval-Augmented Generation (RAG) systems.
+
+Proficient in building end-to-end AI pipelines, including data ingestion, embedding generation, vector search using Qdrant, and RESTful API integration via FastAPI and Streamlit. Skilled in prompt engineering and developing multi-agent orchestration systems using LangChain for complex, knowledge-driven workflows
+
 ## Data Engineering & Database Architecture
 
 A seasoned Data Engineers, DevOps Engineers, and Database Architects with two decades of experience in designing, optimizing, and managing high-performance data systems. The focus is on developing reliable data pipelines, architecting scalable and resilient databases, and deploying cloud-native solutions to enable real-time analytics and enterprise-level data processing.
