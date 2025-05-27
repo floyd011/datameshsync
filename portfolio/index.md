@@ -6,12 +6,32 @@ title: "Portfolio of Milorad Spasić"
 
 [Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
-## Data Engineer & Database Architect & Solution Architect – Cloud & Integration Specialist
+## AI/LLM Engineer & Solution Architect – Data & AI Integration Specialist
 
-A seasoned Data Engineer, DevOps Engineer, and Database Architect with two decades of experience in designing, optimizing, and managing high-performance data systems. The focus is on developing reliable data pipelines, architecting scalable and resilient databases, and deploying cloud-native solutions to enable real-time analytics and enterprise-level data processing.
+Experienced AI Engineer specializing in Large Language Model (LLM) development and deployment with strong expertise in transformer architectures, fine-tuning techniques (LoRA, QLoRA), and Retrieval-Augmented Generation (RAG) systems.
+
+Proficient in building end-to-end AI pipelines, including data ingestion, embedding generation, vector search using Qdrant, and RESTful API integration via FastAPI and Streamlit. Skilled in prompt engineering and developing multi-agent orchestration systems using LangChain for complex, knowledge-driven workflows.
+
+Hands-on experience with state-of-the-art models such as LLaMA3, Gemma, and OpenAI APIs, optimized for local deployment with GGUF format and Ollama runtime. Comfortable working with PyTorch, HuggingFace transformers, and AI frameworks for training, evaluation, and inference.
+
+Focused on scalable, production-ready AI solutions that integrate intelligent document processing, semantic search, and dynamic response generation.
+
+A seasoned Data Engineer with two decades of experience in designing, optimizing, and managing high-performance data systems. The focus is on developing reliable data pipelines, architecting scalable and resilient databases, and deploying cloud-native solutions to enable real-time analytics and enterprise-level data processing.
 
 ### Core Expertise
 
+-	**LLM Engineering** & Prompt Design: Practical experience with OpenAI, LLaMA3, Gemma, and local model deployment via Ollama. Skilled in designing efficient prompts and dynamic AI workflows for document analysis, search, and decision-making tasks.
+  
+-	**RAG Systems & Vector Search**: Built custom Retrieval-Augmented Generation pipelines using Qdrant and various embedding models. Developed FastAPI-based services that perform real-time document querying, intelligent tagging (via KeyBERT), and semantic search.
+  
+-	**Model Fine-Tuning & Optimization**: Worked with LoRA, QLoRA, and GGUF formats to fine-tune and serve models locally. Created scripts to train and evaluate models in constrained environments, including exporting for use with Ollama.
+  
+-	**AI Agents & Multi-Agent Systems**: Designed LangChain-based multi-agent pipelines for task decomposition, coordination, and reasoning. Focused on agent orchestration for knowledge-intensive tasks.
+  
+- **NLP & Transformers**: Experience with tokenization, embeddings, and transformer architecture (HuggingFace, PyTorch). Able to train and evaluate models for intelligent document processing and NLP automation tasks.
+  
+- **Deployment & APIs**: Built RESTful APIs and Streamlit apps to integrate LLMs into end-user applications. Familiar with scalable deployment using FastAPI and real-time interaction with AI services.
+ 
 - **Data Engineering & Architecture:**  
   Proficiency in Python and SQL, with extensive experience in ETL/ELT frameworks including Debezium, Kafka, Greenplum, and Hadoop, enabling robust real-time data streaming and analytics.
 
@@ -25,9 +45,14 @@ A seasoned Data Engineer, DevOps Engineer, and Database Architect with two decad
   Development of containerized, event-driven microservices and adoption of GitOps workflows for building scalable and resilient data platforms.
 
 - **Performance & Security:**  
-  Advanced knowledge of indexing techniques, data partitioning, replication, and compliance with regulatory standards such as GDPR and HIPAA.
+  Advanced knowledge of indexing techniques, data partitioning, replication, and compliance with regulatory standards such as GDPR.
 
 ### Professional Impact
+
+	•	Building local/private RAG systems
+	•	Developing lightweight, adaptable AI agents
+	•	Integrating LLMs into intelligent document workflows
+	•	Optimizing models for on-device or serverless use
 
 - Designed and implemented real-time analytics platforms capable of processing millions of events daily using technologies like Kafka, Python, and Kubernetes.  
 - Optimized high-throughput transactional databases for enterprise clients, achieving up to 60% reduction in query execution times and improved system resilience.  
@@ -45,6 +70,11 @@ This portfolio showcases a blend of cloud-native development on AWS and hybrid i
 
 ## Technical Skills
 
+- **AI/ LLM Integration Tools:**  
+  - Python, PyTorch, HuggingFace, LangChain
+	- Qdrant, Ollama, LLaMA3, Gemma, OpenAI, GGUF, LoRA/QLoRA
+	- NLP,KeyBERT
+	
 - **Data Integration Tools:**  
   Debezium, Kafka  
 
