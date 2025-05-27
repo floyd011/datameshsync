@@ -18,6 +18,18 @@ A seasoned Data Engineers, DevOps Engineers, and Database Architects with two de
 
 ### Core Expertise
 
+-	**LLM Engineering** & Prompt Design: Practical experience with OpenAI, LLaMA3, Gemma, and local model deployment via Ollama. Skilled in designing efficient prompts and dynamic AI workflows for document analysis, search, and decision-making tasks.
+  
+-	**RAG Systems & Vector Search**: Built custom Retrieval-Augmented Generation pipelines using Qdrant and various embedding models. Developed FastAPI-based services that perform real-time document querying, intelligent tagging (via KeyBERT), and semantic search.
+  
+-	**Model Fine-Tuning & Optimization**: Worked with LoRA, QLoRA, and GGUF formats to fine-tune and serve models locally. Created scripts to train and evaluate models in constrained environments, including exporting for use with Ollama.
+  
+-	**AI Agents & Multi-Agent Systems**: Designed LangChain-based multi-agent pipelines for task decomposition, coordination, and reasoning. Focused on agent orchestration for knowledge-intensive tasks.
+  
+- **NLP & Transformers**: Experience with tokenization, embeddings, and transformer architecture (HuggingFace, PyTorch). Able to train and evaluate models for intelligent document processing and NLP automation tasks.
+  
+- **Deployment & APIs**: Built RESTful APIs and Streamlit apps to integrate LLMs into end-user applications. Familiar with scalable deployment using FastAPI and real-time interaction with AI services.
+ 
 - **Data Engineering & Architecture:**  
   Proficiency in Python and SQL, with extensive experience in ETL/ELT frameworks including Debezium, Kafka, Greenplum, and Hadoop, enabling robust real-time data streaming and analytics.
 
