@@ -49,10 +49,10 @@ A seasoned Data Engineer with two decades of experience in designing, optimizing
 
 ### Professional Impact
 
-	•	Building local/private RAG systems
-	•	Developing lightweight, adaptable AI agents
-	•	Integrating LLMs into intelligent document workflows
-	•	Optimizing models for on-device or serverless use
+- **Building local/private RAG systems**
+- **Developing lightweight, adaptable AI agents**
+- **Integrating LLMs into intelligent document workflows**
+- **Optimizing models for on-device or serverless use**
 
 - Designed and implemented real-time analytics platforms capable of processing millions of events daily using technologies like Kafka, Python, and Kubernetes.  
 - Optimized high-throughput transactional databases for enterprise clients, achieving up to 60% reduction in query execution times and improved system resilience.  
