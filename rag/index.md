@@ -9,7 +9,7 @@ As part of an advanced AI integration initiative, I designed and built a modular
 
 This system enables seamless ingestion, enrichment, and querying of large collections of PDF documents (such as CVs), leveraging both local and cloud-based LLMs like LLaMA 3 and OpenAI GPT-4.1 — all wrapped in a user-friendly Web UI.
 
-![image](assets/images/IMG_1004 2.jpg)
+![image](assets/images/IMG_10042.jpg)
 
 💡 **Key Features & Capabilities**
 
