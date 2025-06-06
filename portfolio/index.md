@@ -26,7 +26,7 @@ A seasoned Data Engineer with two decades of experience in designing, optimizing
   
 -	**Model Fine-Tuning & Optimization**: Worked with LoRA, QLoRA, and GGUF formats to fine-tune and serve models locally. Created scripts to train and evaluate models in constrained environments, including exporting for use with Ollama.
   
--	**AWS PCS p3.2xlarge cluster (HPC)**: work from shell prompt  with SLURM (sbatch,srun,squeue,scancel), Appteiner for build from .def .sif images for fine-tunning LoRA and QLoRA.
+-	**AWS PCS p3.2xlarge cluster (HPC)**: work from shell prompt  with SLURM (sbatch,srun,squeue,scancel), Apptainer for build from .def .sif images for fine-tunning LoRA and QLoRA.
   
 -	**AI Agents & Multi-Agent Systems**: Designed LangChain-based multi-agent pipelines for task decomposition, coordination, and reasoning. Focused on agent orchestration for knowledge-intensive tasks.
   
