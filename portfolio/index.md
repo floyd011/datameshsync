@@ -316,5 +316,5 @@ Designing and implementing modern data architectures, with a strong focus on sca
 
 [Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
-  - email: [Milorad Spasic](mailto:milorad.spasic@datameshsync.info)
+  - email: [Milorad Spasic](mailto:engine@datameshsync.info)
   - Linkedin: [Linkedin](https://www.linkedin.com/in/milorad-spasic)
