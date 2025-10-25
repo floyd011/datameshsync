@@ -1,0 +1,16 @@
+<script>
+fetch('../vcard/vcard.vcf')
+    .then(r => r.text())
+    .then(vcf => {
+        // Koristite direktno sadržaj vašeg VCF fajla
+        QRCode.toCanvas(document.getElementById('qrcode'), vcf, {
+            width: 250,
+            margin: 1
+        });
+    })
+    .catch(() => {
+        // Fallback na direktne podatke
+        const fallbackVCard = `BEGIN:VCARD...`;
+        QRCode.toCanvas(document.getElementById('qrcode'), fallbackVCard);
+    });
+</script>
