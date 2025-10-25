@@ -1,7 +1,7 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Milorad Spasic
-N:Spasic;Milorad;;;
+FN:Milorad Spasić
+N:Spasić;Milorad;;;
 TITLE:Administrator on a supercomputer in Goverment Data Center
 EMAIL;TYPE=WORK;PREF=1:milorad.spasic@ite.gov.rs
 EMAIL;TYPE=PERSONAL:engine@datameshsync.info
