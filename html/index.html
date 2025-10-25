@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontaktirajte nas - Data Mesh Sync</title>
+    <!-- DODAJTE OVAJ SCRIPT - TO JE PROBLEM -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <style>
         * {
@@ -182,7 +183,7 @@
             <div id="qrcode"></div>
         </div>
 
-        <div class="loading" id="loading">🔄 Učitavam i optimizujem kontakt podatke...</div>
+        <div class="loading" id="loading">🔄 Generišem QR kod...</div>
         <div class="error-message" id="errorMessage" style="display: none;"></div>
         <div class="success-message" id="successMessage" style="display: none;">
             ✅ QR kod uspešno generisan! Skenirajte ga da dodate kontakt.
@@ -217,73 +218,7 @@
             debugElement.style.display = 'block';
         }
 
-        // Funkcija za optimizaciju VCF fajla
-        function optimizeVCF(vcfContent) {
-            showDebugInfo('Optimizujem VCF fajl...');
-            
-            const lines = vcfContent.split('\n');
-            const essentialLines = [];
-            let contactCount = 0;
-            
-            for (let line of lines) {
-                // Uzmi samo osnovne kontakt informacije
-                if (line.startsWith('BEGIN:VCARD')) {
-                    contactCount++;
-                    if (contactCount > 1) {
-                        showDebugInfo(`Preskačem dodatni kontakt (ukupno: ${contactCount})`);
-                        continue; // Preskoči dodatne kontakte
-                    }
-                }
-                
-                if (line.startsWith('FN:') || 
-                    line.startsWith('TEL:') || 
-                    line.startsWith('EMAIL:') ||
-                    line.startsWith('ORG:') ||
-                    line.startsWith('TITLE:') ||
-                    line.startsWith('URL:') ||
-                    line.startsWith('ADR:') ||
-                    line.startsWith('NOTE:') ||
-                    line.startsWith('END:VCARD') ||
-                    line.startsWith('BEGIN:VCARD') ||
-                    line.startsWith('VERSION:')) {
-                    
-                    // Ukloni nepotrebne detalje
-                    if (line.startsWith('TEL:')) {
-                        // Zadrži samo osnovne brojeve
-                        if (line.includes('TYPE=CELL') || !line.includes('TYPE=')) {
-                            essentialLines.push(line.split(';')[0]); // Uzmi samo broj
-                        }
-                    } else if (line.startsWith('ADR:')) {
-                        // Pojednostavi adresu
-                        essentialLines.push('ADR:;;Beograd;;Srbija');
-                    } else {
-                        essentialLines.push(line);
-                    }
-                }
-            }
-            
-            const optimizedVCF = essentialLines.join('\n');
-            showDebugInfo(`Original: ${vcfContent.length} chars → Optimizovano: ${optimizedVCF.length} chars`);
-            
-            return optimizedVCF;
-        }
-
-        // Funkcija za kreiranje jednostavnog vCard-a
-        function createSimpleVCard() {
-            showDebugInfo('Kreiram jednostavan vCard...');
-            
-            return `BEGIN:VCARD
-VERSION:3.0
-FN:Data Mesh Sync
-ORG:Data Mesh Sync
-TEL:+381641234567
-EMAIL:info@datameshsync.info
-URL:https://www.datameshsync.info
-NOTE:Data Mesh Solutions
-END:VCARD`;
-        }
-
-        // Funkcija za generisanje QR koda
+        // Funkcija za generisanje QR koda sa qrcode-generator bibliotekom
         function generateQRCode() {
             const loadingElement = document.getElementById('loading');
             const errorElement = document.getElementById('errorMessage');
@@ -294,7 +229,7 @@ END:VCARD`;
             
             // Reset stanja
             loadingElement.style.display = 'block';
-            loadingElement.textContent = '🔄 Učitavam kontakt podatke...';
+            loadingElement.textContent = '🔄 Generišem QR kod...';
             errorElement.style.display = 'none';
             successElement.style.display = 'none';
             downloadQRBtn.disabled = true;
@@ -302,6 +237,7 @@ END:VCARD`;
             isQRGenerated = false;
             qrContainer.innerHTML = '';
 
+            // PRAVA PUTANJA DO VAŠEG VCF FAJLA
             const vcfPath = '/vcard/kontakt.vcf';
             showDebugInfo(`Pokušavam da učitam: ${vcfPath}`);
 
@@ -315,90 +251,94 @@ END:VCARD`;
                 })
                 .then(vcf => {
                     showDebugInfo('VCF fajl uspešno učitan!');
-                    showDebugInfo(`Originalna dužina: ${vcf.length} karaktera`);
+                    showDebugInfo(`Dužina VCF sadržaja: ${vcf.length} karaktera`);
                     
-                    // OPTIMIZUJ VCF
-                    loadingElement.textContent = '⚡ Optimizujem za QR kod...';
-                    const optimizedVCF = optimizeVCF(vcf);
+                    // Sačuvaj originalne VCF podatke
+                    currentVCardData = vcf;
                     
-                    // Proveri veličinu
-                    if (optimizedVCF.length > 2000) {
-                        showDebugInfo('VCF je još uvek prevelik, koristim jednostavan vCard');
-                        currentVCardData = createSimpleVCard();
-                    } else {
-                        currentVCardData = optimizedVCF;
+                    // GENERIŠI QR KOD SA qrcode-generator bibliotekom
+                    try {
+                        const qr = qrcode(0, 'M');
+                        qr.addData(vcf);
+                        qr.make();
+                        
+                        const qrImage = qr.createImgTag(5, 0);
+                        qrContainer.innerHTML = qrImage;
+                        
+                        loadingElement.style.display = 'none';
+                        successElement.style.display = 'block';
+                        downloadQRBtn.disabled = false;
+                        downloadVCFBtn.disabled = false;
+                        isQRGenerated = true;
+                        
+                        showDebugInfo('QR kod uspešno generisan!');
+                        extractContactInfo(vcf);
+                        
+                    } catch (qrError) {
+                        throw new Error('QR generisanje neuspešno: ' + qrError.message);
                     }
-                    
-                    showDebugInfo(`Konačna dužina: ${currentVCardData.length} karaktera`);
-                    
-                    // GENERIŠI QR KOD
-                    generateQRFromVCard(currentVCardData);
                 })
                 .catch(error => {
-                    showDebugInfo(`Greška pri učitavanju: ${error.message}`);
+                    loadingElement.style.display = 'none';
+                    showDebugInfo(`Greška: ${error.message}`);
+                    
+                    console.log('VCF nije dostupan, koristim fallback podatke:', error);
+                    
+                    // Fallback na direktne podatke
                     useFallbackVCard();
                 });
-        }
-
-        // Funkcija za generisanje QR koda iz vCard podataka
-        function generateQRFromVCard(vcardData) {
-            const loadingElement = document.getElementById('loading');
-            const errorElement = document.getElementById('errorMessage');
-            const successElement = document.getElementById('successMessage');
-            const downloadQRBtn = document.getElementById('downloadQRBtn');
-            const downloadVCFBtn = document.getElementById('downloadVCFBtn');
-            const qrContainer = document.getElementById('qrcode');
-            
-            loadingElement.textContent = '🎨 Generišem QR kod...';
-            
-            try {
-                // Koristi niži nivo korekcije za manje QR kodove
-                const typeNumber = 0; // Auto-detektuj
-                const errorCorrectionLevel = 'L'; // Low error correction - manje podataka
-                
-                const qr = qrcode(typeNumber, errorCorrectionLevel);
-                qr.addData(vcardData);
-                qr.make();
-                
-                // Kreiraj manji QR kod
-                const qrImage = qr.createImgTag(4, 0); // 4px po modulu
-                qrContainer.innerHTML = qrImage;
-                
-                loadingElement.style.display = 'none';
-                successElement.style.display = 'block';
-                downloadQRBtn.disabled = false;
-                downloadVCFBtn.disabled = false;
-                isQRGenerated = true;
-                
-                extractContactInfo(vcardData);
-                showDebugInfo('✅ QR kod uspešno generisan!');
-                
-            } catch (qrError) {
-                showDebugInfo(`❌ QR greška: ${qrError.message}`);
-                
-                // Pokušaj sa još jednostavnijim vCard-om
-                const simpleVCard = createSimpleVCard();
-                if (vcardData !== simpleVCard) {
-                    showDebugInfo('Pokušavam sa jednostavnijim vCard-om...');
-                    generateQRFromVCard(simpleVCard);
-                } else {
-                    loadingElement.style.display = 'none';
-                    errorElement.textContent = 'Ne mogu da generišem QR kod. VCF fajl je prevelik.';
-                    errorElement.style.display = 'block';
-                }
-            }
         }
 
         // Fallback funkcija
         function useFallbackVCard() {
             const loadingElement = document.getElementById('loading');
+            const errorElement = document.getElementById('errorMessage');
+            const downloadQRBtn = document.getElementById('downloadQRBtn');
+            const downloadVCFBtn = document.getElementById('downloadVCFBtn');
+            const qrContainer = document.getElementById('qrcode');
             
-            loadingElement.textContent = '📝 Koristim optimizovane podatke...';
+            loadingElement.textContent = '📝 Koristim rezervne podatke...';
+            loadingElement.style.display = 'block';
+
+            const fallbackVCard = `BEGIN:VCARD
+VERSION:3.0
+FN:Data Mesh Sync
+ORG:Data Mesh Sync
+TEL:+381641234567
+EMAIL:info@datameshsync.info
+URL:https://www.datameshsync.info
+ADR:;;Beograd;;Srbija;
+NOTE:Specijalizovani za data mesh arhitekture
+END:VCARD`;
             
-            const fallbackVCard = createSimpleVCard();
             currentVCardData = fallbackVCard;
+            qrContainer.innerHTML = '';
             
-            generateQRFromVCard(fallbackVCard);
+            try {
+                const qr = qrcode(0, 'M');
+                qr.addData(fallbackVCard);
+                qr.make();
+                
+                const qrImage = qr.createImgTag(5, 0);
+                qrContainer.innerHTML = qrImage;
+                
+                loadingElement.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                downloadQRBtn.disabled = false;
+                downloadVCFBtn.disabled = false;
+                isQRGenerated = true;
+                extractContactInfo(fallbackVCard);
+                showDebugInfo('Fallback QR kod uspešno generisan!');
+                
+                errorElement.innerHTML = '⚠️ Koristim rezervne podatke. VCF fajl nije pronađen na: <code>/vcard/kontakt.vcf</code>';
+                errorElement.style.display = 'block';
+                
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.textContent = 'Greška pri generisanju rezervnog QR koda: ' + error.message;
+                errorElement.style.display = 'block';
+                showDebugInfo(`Fallback QR greška: ${error.message}`);
+            }
         }
 
         // Funkcija za ekstrakciju kontakt informacija
@@ -418,13 +358,13 @@ END:VCARD`;
                 }
             });
             
-            showDebugInfo(`Kontakt: ${currentContactInfo.name || 'Data Mesh Sync'}`);
+            showDebugInfo(`Kontakt: ${currentContactInfo.name || 'Nepoznato'}`);
         }
 
         // Funkcija za preuzimanje QR koda
         function downloadQRCode() {
             if (!isQRGenerated) {
-                alert('QR kod još uvek nije generisan!');
+                alert('QR kod još uvek nije generisan! Sačekajte da se generiše.');
                 return;
             }
 
@@ -437,14 +377,14 @@ END:VCARD`;
                 link.click();
                 showDebugInfo('QR kod preuzet!');
             } else {
-                alert('QR kod nije pronađen!');
+                alert('QR kod nije pronađen! Pokušajte ponovo da generišete.');
             }
         }
 
         // Funkcija za preuzimanje VCF fajla
         function downloadVCF() {
             if (!isQRGenerated) {
-                alert('VCF podaci nisu spremni!');
+                alert('VCF podaci nisu spremni! Sačekajte da se QR kod generiše.');
                 return;
             }
 
@@ -458,7 +398,7 @@ END:VCARD`;
                 URL.revokeObjectURL(link.href);
                 showDebugInfo('VCF fajl preuzet!');
             } else {
-                alert('Nema VCF podataka!');
+                alert('Nema VCF podataka za preuzimanje!');
             }
         }
 
@@ -468,7 +408,7 @@ END:VCARD`;
             generateQRCode();
         }
 
-        // Provera biblioteke
+        // Provera da li je biblioteka učítana
         function checkLibrary() {
             if (typeof qrcode === 'undefined') {
                 showDebugInfo('❌ QRCode biblioteka nije učítana!');
@@ -478,16 +418,22 @@ END:VCARD`;
             return true;
         }
 
-        // Pokreni kada se stranica učita
+        // Pokreni generisanje kada se stranica učita
         document.addEventListener('DOMContentLoaded', function() {
             showDebugInfo('Stranica se učitala...');
             if (checkLibrary()) {
                 generateQRCode();
             } else {
-                document.getElementById('errorMessage').textContent = 'QRCode biblioteka nije učítana.';
+                document.getElementById('errorMessage').textContent = 'QRCode biblioteka nije učítana. Proverite internet konekciju.';
                 document.getElementById('errorMessage').style.display = 'block';
                 document.getElementById('loading').style.display = 'none';
             }
+        });
+
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+            showDebugInfo(`Globalna greška: ${e.error}`);
         });
     </script>
 </body>
