@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontaktirajte nas - Data Mesh Sync</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <!-- DODAJTE OVAJ SCRIPT - TO JE PROBLEM -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -199,6 +200,7 @@
         <div class="download-buttons">
             <button class="btn" id="downloadQRBtn" onclick="downloadQRCode()" disabled>📥 Preuzmi QR Kod</button>
             <button class="btn btn-secondary" id="downloadVCFBtn" onclick="downloadVCF()" disabled>📇 Preuzmi VCF</button>
+            <button class="btn" onclick="regenerateQR()" style="background: #28a745;">🔄 Regeneriš QR</button>
         </div>
     </div>
 
@@ -216,13 +218,14 @@
             debugElement.style.display = 'block';
         }
 
-        // Funkcija za generisanje QR koda
+        // Funkcija za generisanje QR koda sa qrcode-generator bibliotekom
         function generateQRCode() {
             const loadingElement = document.getElementById('loading');
             const errorElement = document.getElementById('errorMessage');
             const successElement = document.getElementById('successMessage');
             const downloadQRBtn = document.getElementById('downloadQRBtn');
             const downloadVCFBtn = document.getElementById('downloadVCFBtn');
+            const qrContainer = document.getElementById('qrcode');
             
             // Reset stanja
             loadingElement.style.display = 'block';
@@ -232,6 +235,7 @@
             downloadQRBtn.disabled = true;
             downloadVCFBtn.disabled = true;
             isQRGenerated = false;
+            qrContainer.innerHTML = '';
 
             // PRAVA PUTANJA DO VAŠEG VCF FAJLA
             const vcfPath = '/vcard/vcard.vcf';
@@ -252,40 +256,31 @@
                     // Sačuvaj originalne VCF podatke
                     currentVCardData = vcf;
                     
-                    // Očisti QR kod kontejner
-                    const qrContainer = document.getElementById('qrcode');
-                    qrContainer.innerHTML = '';
-                    
-                    // Generiši QR kod
-                    QRCode.toCanvas(qrContainer, vcf, {
-                        width: 250,
-                        height: 250,
-                        margin: 1,
-                        colorDark: "#000000",
-                        colorLight: "#ffffff",
-                        correctLevel: QRCode.CorrectLevel.Q
-                    }, function(error) {
-                        loadingElement.style.display = 'none';
+                    // GENERIŠI QR KOD SA qrcode-generator bibliotekom
+                    try {
+                        const qr = qrcode(0, 'M');
+                        qr.addData(vcf);
+                        qr.make();
                         
-                        if (error) {
-                            showDebugInfo(`QR greška: ${error.message}`);
-                            errorElement.textContent = 'Greška pri generisanju QR koda: ' + error.message;
-                            errorElement.style.display = 'block';
-                        } else {
-                            showDebugInfo('QR kod uspešno generisan!');
-                            successElement.style.display = 'block';
-                            downloadQRBtn.disabled = false;
-                            downloadVCFBtn.disabled = false;
-                            isQRGenerated = true;
-                            
-                            // Ekstrahuj kontakt informacije
-                            extractContactInfo(vcf);
-                        }
-                    });
+                        const qrImage = qr.createImgTag(5, 0);
+                        qrContainer.innerHTML = qrImage;
+                        
+                        loadingElement.style.display = 'none';
+                        successElement.style.display = 'block';
+                        downloadQRBtn.disabled = false;
+                        downloadVCFBtn.disabled = false;
+                        isQRGenerated = true;
+                        
+                        showDebugInfo('QR kod uspešno generisan!');
+                        extractContactInfo(vcf);
+                        
+                    } catch (qrError) {
+                        throw new Error('QR generisanje neuspešno: ' + qrError.message);
+                    }
                 })
                 .catch(error => {
                     loadingElement.style.display = 'none';
-                    showDebugInfo(`Fetch greška: ${error.message}`);
+                    showDebugInfo(`Greška: ${error.message}`);
                     
                     console.log('VCF nije dostupan, koristim fallback podatke:', error);
                     
@@ -300,6 +295,7 @@
             const errorElement = document.getElementById('errorMessage');
             const downloadQRBtn = document.getElementById('downloadQRBtn');
             const downloadVCFBtn = document.getElementById('downloadVCFBtn');
+            const qrContainer = document.getElementById('qrcode');
             
             loadingElement.textContent = '📝 Koristim rezervne podatke...';
             loadingElement.style.display = 'block';
@@ -316,35 +312,33 @@ NOTE:Specijalizovani za data mesh arhitekture
 END:VCARD`;
             
             currentVCardData = fallbackVCard;
-            const qrContainer = document.getElementById('qrcode');
             qrContainer.innerHTML = '';
             
-            QRCode.toCanvas(qrContainer, fallbackVCard, {
-                width: 250,
-                height: 250,
-                margin: 1,
-                colorDark: "#000000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.Q
-            }, function(error) {
-                loadingElement.style.display = 'none';
+            try {
+                const qr = qrcode(0, 'M');
+                qr.addData(fallbackVCard);
+                qr.make();
                 
-                if (error) {
-                    errorElement.textContent = 'Greška pri generisanju rezervnog QR koda: ' + error.message;
-                    errorElement.style.display = 'block';
-                    showDebugInfo(`Fallback QR greška: ${error.message}`);
-                } else {
-                    document.getElementById('successMessage').style.display = 'block';
-                    downloadQRBtn.disabled = false;
-                    downloadVCFBtn.disabled = false;
-                    isQRGenerated = true;
-                    extractContactInfo(fallbackVCard);
-                    showDebugInfo('Fallback QR kod uspešno generisan!');
-                    
-                    errorElement.innerHTML = '⚠️ Koristim rezervne podatke. VCF fajl nije pronađen na: <code>/vcard/kontakt.vcf</code>';
-                    errorElement.style.display = 'block';
-                }
-            });
+                const qrImage = qr.createImgTag(5, 0);
+                qrContainer.innerHTML = qrImage;
+                
+                loadingElement.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                downloadQRBtn.disabled = false;
+                downloadVCFBtn.disabled = false;
+                isQRGenerated = true;
+                extractContactInfo(fallbackVCard);
+                showDebugInfo('Fallback QR kod uspešno generisan!');
+                
+                errorElement.innerHTML = '⚠️ Koristim rezervne podatke. VCF fajl nije pronađen na: <code>/vcard/kontakt.vcf</code>';
+                errorElement.style.display = 'block';
+                
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.textContent = 'Greška pri generisanju rezervnog QR koda: ' + error.message;
+                errorElement.style.display = 'block';
+                showDebugInfo(`Fallback QR greška: ${error.message}`);
+            }
         }
 
         // Funkcija za ekstrakciju kontakt informacija
@@ -374,12 +368,12 @@ END:VCARD`;
                 return;
             }
 
-            const canvas = document.querySelector('#qrcode canvas');
-            if (canvas) {
+            const img = document.querySelector('#qrcode img');
+            if (img) {
                 const link = document.createElement('a');
                 const name = currentContactInfo.name || 'DataMeshSync';
                 link.download = `qr-kontakt-${name.replace(/\s+/g, '-')}.png`;
-                link.href = canvas.toDataURL('image/png');
+                link.href = img.src;
                 link.click();
                 showDebugInfo('QR kod preuzet!');
             } else {
@@ -408,10 +402,32 @@ END:VCARD`;
             }
         }
 
+        // Funkcija za regenerisanje QR koda
+        function regenerateQR() {
+            showDebugInfo('--- REGENERISANJE QR KODA ---');
+            generateQRCode();
+        }
+
+        // Provera da li je biblioteka učítana
+        function checkLibrary() {
+            if (typeof qrcode === 'undefined') {
+                showDebugInfo('❌ QRCode biblioteka nije učítana!');
+                return false;
+            }
+            showDebugInfo('✅ QRCode biblioteka je učítana');
+            return true;
+        }
+
         // Pokreni generisanje kada se stranica učita
         document.addEventListener('DOMContentLoaded', function() {
-            showDebugInfo('Stranica se učitala, pokrećem generisanje QR koda...');
-            generateQRCode();
+            showDebugInfo('Stranica se učitala...');
+            if (checkLibrary()) {
+                generateQRCode();
+            } else {
+                document.getElementById('errorMessage').textContent = 'QRCode biblioteka nije učítana. Proverite internet konekciju.';
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('loading').style.display = 'none';
+            }
         });
 
         // Error handling
