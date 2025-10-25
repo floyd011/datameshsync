@@ -194,7 +194,7 @@
             errorElement.style.display = 'none';
             successElement.style.display = 'none';
 
-            fetch('../vcard/vcard.vcf')
+            fetch('/vcard/vcard.vcf')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('VCF fajl nije pronađen');
