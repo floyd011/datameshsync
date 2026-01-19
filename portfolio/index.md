@@ -6,17 +6,56 @@ title: "Portfolio of Milorad Spasić"
 
 [Home](#welcome-to-the-portfolio-of-milorad-spasić) &nbsp; &nbsp; [Skills](#skills) &nbsp; &nbsp;[Projects](#projects) &nbsp; &nbsp;[Experience](#experience) &nbsp; &nbsp;[Certifications](#certifications) &nbsp; &nbsp;[Contact](#contact)
 
-## AI/LLM Engineer & Solution Architect – Data & AI Integration Specialist
+## Large Language Model Training & Distributed ML Engineering
 
-Experienced AI Engineer specializing in Large Language Model (LLM) development and deployment with strong expertise in transformer architectures, fine-tuning techniques (LoRA, QLoRA), and Retrieval-Augmented Generation (RAG) systems.
+- Designed and implemented end-to-end **LLM training** pipelines for both full fine-tuning and **LoRA/QLoRA**
+  
+    -	Built **Fully Sharded Data Parallel (FSDP)** training systems
+    -   Built **Distributed Data Parallel (DDP)** training systems
+	-   parameter sharding, gradient synchronization, and memory-efficient training on multi-GPU nodes,
+	-   rank-aware checkpointing and fault-tolerant resume training (global step, epoch, sampler state),
+	-   safe final model consolidation into Hugging Face–compatible artifacts.
 
-Proficient in building end-to-end AI pipelines, including data ingestion, embedding generation, vector search using Qdrant, and RESTful API integration via FastAPI and Streamlit. Skilled in prompt engineering and developing multi-agent orchestration systems using LangChain for complex, knowledge-driven workflows.
+- Engineered robust checkpointing strategies for long-running jobs:
+  
+    -   per-rank sharded checkpoints for crash recovery,
+	-   retention policies to limit disk usage,
+	-   final full-state export suitable for downstream inference engines.
 
-Hands-on experience with state-of-the-art models such as LLaMA3, Gemma, and OpenAI APIs, optimized for local deployment with GGUF format and Ollama runtime. Comfortable working with PyTorch, HuggingFace transformers, and AI frameworks for training, evaluation, and inference.
+- Diagnosed and resolved distributed training failures involving:
+  
+    -   **NCCL** collective mismatches, barrier deadlocks, and rank desynchronization,
+	-   optimizer state incompatibilities (AdamW vs SGD) and their impact on memory and runtime,
+	-   **CUDA** / PyTorch / driver mismatches in multi-GPU environments.
 
-Focused on scalable, production-ready AI solutions that integrate intelligent document processing, semantic search, and dynamic response generation.
+- Integrated distributed training workflows with Slurm:
+  
+    -   multi-node, multi-GPU job orchestration,
+	-   **torchrun-based process launch**,
+	-   rank and world-size aware training logic.
 
-A seasoned Data Engineer with two decades of experience in designing, optimizing, and managing high-performance data systems. The focus is on developing reliable data pipelines, architecting scalable and resilient databases, and deploying cloud-native solutions to enable real-time analytics and enterprise-level data processing.
+- Standardized training environments using containerized ML stacks:
+  
+    -   **Docker-based development** images,
+	-   reproducible CUDA, PyTorch, NCCL, and vLLM configurations.
+
+- Prepared trained models for high-performance inference:
+  
+    -   exported consolidated weights for **vLLM** compatibility,
+	-   validated tokenizer configuration (padding side, EOS handling),
+	-   ensured correct tensor layouts and shard formats.
+
+- Implemented in-training validation and monitoring hooks:
+  
+    -   rank-local evaluation sampling,
+	-   controlled logging to avoid distributed overhead,
+	-   step-based and epoch-based execution control.
+
+- Strong focus on production-grade reliability:
+  
+    -   deterministic restarts after preemption or node failure,
+	-   minimal downtime on long (multi-day) training runs,
+	-   clear separation between training, checkpoint recovery, and final model packaging.
 
 ### Core Expertise
 
