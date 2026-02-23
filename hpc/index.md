@@ -14,10 +14,12 @@ Pre bilo kakvog koda, korisnik mora znati kako da proveri da li GPU uopšte “v
 
 **Na login/compute nodu — provera da li sistem vidi GPU**
 
-```nvidia-smi```
+```bash
+nvidia-smi
+```
 
 **Očekivani izlaz (primer):**
-```
+```bash
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.85.12    Driver Version: 525.85.12    CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -34,7 +36,7 @@ Pre bilo kakvog koda, korisnik mora znati kako da proveri da li GPU uopšte “v
 
 
 ### U Python sesiji — provera za PyTorch##
-```
+```python
 import torch
 print(torch.cuda.is_available())      # mora biti True
 print(torch.cuda.device_count())      # broj dostupnih GPU-ova
