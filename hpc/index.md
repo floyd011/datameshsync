@@ -35,7 +35,7 @@ nvidia-smi
 **Ako vidite grešku — niste na compute nodu ili niste zatražili GPU resurse u SLURM-u**
 
 
-### U Python sesiji — provera za PyTorch##
+### U Python sesiji — provera za PyTorch ###
 ```python
 import torch
 print(torch.cuda.is_available())      # mora biti True
