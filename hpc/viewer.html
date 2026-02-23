@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Markdown Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+    <style>
+        .markdown-body { max-width: 980px; margin: 0 auto; padding: 45px; }
+    </style>
+</head>
+<body>
+    <div class="markdown-body" id="content"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Uzmi trenutni MD fajl iz URL-a
+        const path = window.location.pathname;
+        const mdFile = path.replace('.html', '.md');
+        
+        fetch(mdFile)
+            .then(response => response.text())
+            .then(md => {
+                document.getElementById('content').innerHTML = marked.parse(md);
+            })
+            .catch(err => {
+                document.getElementById('content').innerHTML = '<h1>Greška</h1><p>Ne mogu da učitam MD fajl: ' + err + '</p>';
+            });
+    </script>
+</body>
+</html>
