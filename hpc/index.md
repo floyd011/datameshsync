@@ -57,7 +57,7 @@ problem je ili u SLURM zahtevima ili u Docker konfiguraciji.
 Ovo je najčešće mesto greške broj jedan. Korisnici napišu SLURM skriptu, 
 ne navedu GPU, i job se pokrene na CPU nodu.
 Minimalna SLURM skripta sa GPU:
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=moj_gpu_job
 #SBATCH --partition=defq              # VAŽNO: mora biti GPU particija
@@ -77,7 +77,7 @@ python moj_skript.py
 
 
 Česte varijacije za --gres:
-```
+```bash
 #SBATCH --gres=gpu:1          # jedan GPU bilo kojeg tipa
 #SBATCH --gres=gpu:a100:1     # jedan A100 specifično
 #SBATCH --gres=gpu:2          # dva GPU-a (za multi-GPU trening)
@@ -86,7 +86,7 @@ python moj_skript.py
 Kako proveriti da li je SLURM dodelio GPU:
 
 ## Unutar pokrenute sesije ili na početku skripte ##
-```
+```bash
 echo "Dodeljeni GPU: $CUDA_VISIBLE_DEVICES"
 nvidia-smi
 ```
@@ -96,28 +96,28 @@ nvidia-smi
 Greška broj dva je pokretanje Docker kontejnera bez --gpus parametra.
 
 **POGREŠNO — kontejner ne vidi GPU**
-```
+```bash
 docker run -it pytorch/pytorch:latest python train.py
 ```
 
 **ISPRAVNO — jedan GPU**
-```
+```bash
 docker run --gpus 1 -it pytorch/pytorch:latest python train.py
 ```
 
 **ISPRAVNO — svi dostupni GPU-ovi (najčešće što treba)**
-```
+```bash
 docker run --gpus all -it pytorch/pytorch:latest python train.py
 ```
 
 **ISPRAVNO — specifičan GPU po indeksu**
-```
+```bash
 docker run --gpus '"device=0"' -it pytorch/pytorch:latest python train.py
 docker run --gpus '"device=0,1"' -it pytorch/pytorch:latest python train.py  # dva GPU-a
 ```
 
 Primer kompletne Docker komande za ML trening:
-```
+```bash
 docker run --gpus all \
   --rm \                                    # obriši kontejner posle završetka
   -v /home/korisnik/podaci:/data \          # mount lokalnih podataka
@@ -128,11 +128,11 @@ docker run --gpus all \
 ```
 
 **1.4 PyTorch — minimalan primer prebacivanja na GPU**
-```
+```python
 import torch
 ```
 ### Uvek na početku koda definišite device ovako — ne hardcode-ujte 'cuda' ###
-```
+```python
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Koristim: {device}")
 
@@ -175,7 +175,7 @@ for batch_x, batch_y in dataloader:
 ```
 
 Najčešća greška u PyTorch-u je kada je model na GPU-u ali podaci ostanu na CPU-u. Poruka greške tada izgleda ovako:
-```
+```bash
 RuntimeError: Expected all tensors to be on the same device, 
 but found at least two devices, cuda:0 and cpu!
 ```
@@ -185,7 +185,7 @@ Rešenje je uvek batch_x = batch_x.to(device) unutar trening petlje.
 **1.5 TensorFlow — minimalan primer**
 TensorFlow je u prednosti jer automatski koristi GPU ako ga vidi, 
 ali ima svojih zamki:
-```
+```python
 import tensorflow as tf
 
 # Provera
@@ -206,7 +206,7 @@ for gpu in gpus:
 
 Zamka specifična za klastere: TensorFlow po defaultu zauzme svu slobodnu GPU memoriju čak i za mali model. Na deljenom klasteru to blokira sve ostale korisnike. 
 Linija 
-```
+```python
 set_memory_growth(gpu, True)
 ```
 je obavezna i treba je istaći crvenim slovima u dokumentaciji.
@@ -228,24 +228,24 @@ Pre nego što korisnik krene u bilo koji framework-specifičan dijagnostički po
 Svaka od ovih tačaka ima svoju proveru:
 
 ### Tačka 1 — koji node koristim? ###
-```
+```bash
 hostname
 squeue -u $USER    # pogledaj NODELIST kolonu
 ```
 
 ### Tačka 2 — šta je SLURM dodelio? ###
-```
+```bash
 echo $CUDA_VISIBLE_DEVICES    # mora biti broj, ne prazan string
 scontrol show job $SLURM_JOB_ID | grep GPU
 ```
 
 ### Tačka 3 — nvidia-smi (viđeno u Sloju 1) ###
-```
+```bash
 nvidia-smi
 ```
 
 ### Tačka 4 — monitoring u realnom vremenu dok job radi ###
-```
+```bash
 watch -n 1 nvidia-smi    # osvežava svake sekunde
 ```
 
@@ -254,7 +254,7 @@ Ako **$CUDA_VISIBLE_DEVICES** je prazan — SLURM nije dodelio GPU, proveriti --
 ## 2.2 PyTorch dijagnostika ##
 
 Scenario: kod radi, ali sumnjam da ne koristi GPU
-```
+```python
 import torch
 
 # ---- PROVERA 1: Da li CUDA uopšte postoji u ovoj instalaciji? ----
@@ -307,12 +307,12 @@ print(f"GPU: {time.time() - start:.3f}s")
 Scenario: **CUDA out of memory greška**
 
 ## Poruka greške: ##
-```
+```bash
 RuntimeError: CUDA out of memory. Tried to allocate X GiB
 ```
 
 ## Dijagnostika — koliko memorije koristim? ##
-```
+```python
 print(f"Zauzeto: {torch.cuda.memory_allocated()/1e9:.2f} GB")
 print(f"Rezervisano: {torch.cuda.memory_reserved()/1e9:.2f} GB")
 ```
@@ -320,18 +320,18 @@ print(f"Rezervisano: {torch.cuda.memory_reserved()/1e9:.2f} GB")
 ## Česta rešenja: ##
 
 ## 1. Smanji batch size (najbrže rešenje) ##
-```
+```python
 batch_size = 32  # probaj 16 ili 8
 ```
 
 ## 2. Koristi gradient checkpointing za velike modele ##
-```
+```python
 from torch.utils.checkpoint import checkpoint_sequential
 # ovo troši više CPU vremena ali drastično smanjuje GPU memoriju
 ```
 
 ##  3. Koristiti mixed precision (FP16 umesto FP32 — duplo manji memory footprint) ##
-```
+```python
 scaler = torch.cuda.amp.GradScaler()
 with torch.autocast(device_type='cuda', dtype=torch.float16):
     output = model(batch_x)
@@ -342,12 +342,12 @@ scaler.update()
 ```
 
 ## 4. Oslobodi memoriju eksplicitno između jobova ##
-```
+```python
 torch.cuda.empty_cache()
 ```
 
 ## 2.3 TensorFlow dijagnostika ##
-```
+```python
 import tensorflow as tf
 
 # ---- PROVERA 1: Logging gde TF stavlja operacije ----
@@ -404,7 +404,7 @@ for gpu in gpus:
 ## 2.4 CuPy — NumPy kod koji ne koristi GPU ##
 
 Ovo je slučaj koji korisnici često previde. Imaju numerički kod u NumPy-u i misle da automatski koristi GPU. Ne koristi.
-```
+```python
 import numpy as np
 import cupy as cp
 import time
@@ -438,13 +438,13 @@ c_back_on_cpu = cp.asnumpy(c_cp)
 Migracija postojećeg NumPy koda — za jednostavne slučajeve može biti gotovo trivijalna:
 
 ### STARO ###
-```
+```python
 import numpy as np
 xp = np
 ```
 
 ### NOVO — jedna promena, ostatak koda identičan ###
-```
+```python
 import cupy as cp
 xp = cp
 
@@ -459,19 +459,19 @@ Naravno, ovo radi samo ako koristite standardne NumPy operacije. Ako koristite s
 ## 2.5 Docker dijagnostika — kompletno stablo odlučivanja ##
 
 ### KORAK 1: Da li host vidi GPU? ###
-```
+```bash
 nvidia-smi
 ```
 **Greška → problem je na nivou drivera, kontaktirajte admin**
 
 ### KORAK 2: Pokrenite test kontejner ###
-```
+```bash
 docker run --rm --gpus all nvidia/cuda:12.0-base-ubuntu22.04 nvidia-smi
 # Ako ovo radi ali vaš kontejner ne — problem je u vašoj Docker slici
 ```
 
 ### KORAK 3: Da li vaša Docker slika ima CUDA? ###
-```
+```dockerfile
 # POGREŠNA baza — nema CUDA
 FROM python:3.10-slim
 
@@ -482,7 +482,7 @@ FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
 ```
 
 ### KORAK 4: Provera unutar kontejnera ###
-```
+```bash
 docker run --gpus all -it pytorch/pytorch:latest bash
 # Unutar kontejnera:
 nvidia-smi
@@ -492,7 +492,7 @@ python -c "import torch; print(torch.cuda.is_available())"
 Česta greška sa Docker Compose:
 
 ## docker-compose.yml ##
-```
+```yaml
 # POGREŠNO — nema GPU pristup
 services:
   training:
@@ -516,12 +516,12 @@ services:
 Ovo je korisno naučiti jer omogućava korisniku da prati da li job zapravo koristi GPU dok radi:
 
 **Terminal 1 — pokrenite job**
-```
+```bash
 sbatch moj_job.sh
 ```
 
 **Terminal 2 — monitoring (pokrenite na istom compute nodu)**
-```
+```bash
 ssh ime-compute-noda    # ili koristite srun --pty bash u istom jobu
 watch -n 2 nvidia-smi  # osvežava na svake 2 sekunde
 ```
@@ -533,7 +533,7 @@ watch -n 2 nvidia-smi  # osvežava na svake 2 sekunde
 - Power Usage: viši = GPU stvarno radi nešto
 
 ## Detaljniji monitoring ##
-```
+```bash
 nvidia-smi dmon -s u    # utilization sampling svake sekunde
 nvidia-smi dmon -s m    # memory sampling
 
