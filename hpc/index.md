@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Aktivna edukacija za akademski HPC"
+---
+
 # Aktivna edukacija — detaljna razrada za akademski HPC #
 
 
