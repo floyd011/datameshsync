@@ -5,25 +5,67 @@
     <title>Markdown Viewer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
     <style>
-        .markdown-body { max-width: 980px; margin: 0 auto; padding: 45px; }
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #fff;
+        }
+        .markdown-body {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #f6f8fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
-    <div class="markdown-body" id="content"></div>
-    
+    <div class="markdown-body" id="content">
+        <div style="text-align: center; padding: 50px;">
+            Učitavanje...
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        // Uzmi trenutni MD fajl iz URL-a
-        const path = window.location.pathname;
-        const mdFile = path.replace('.html', '.md');
+        // Uzmi putanju do trenutnog foldera
+        const currentPath = window.location.pathname;
+        const folderPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+        
+        // Učitaj index.md iz istog foldera
+        const mdFile = folderPath + '/index.md';
         
         fetch(mdFile)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('index.md nije pronađen u ovom folderu');
+                }
+                return response.text();
+            })
             .then(md => {
                 document.getElementById('content').innerHTML = marked.parse(md);
+                // Postavi naslov stranice
+                document.title = 'Index - Markdown Viewer';
             })
-            .catch(err => {
-                document.getElementById('content').innerHTML = '<h1>Greška</h1><p>Ne mogu da učitam MD fajl: ' + err + '</p>';
+            .catch(error => {
+                document.getElementById('content').innerHTML = `
+                    <h1>Greška</h1>
+                    <p>${error.message}</p>
+                    <p>Molim vas kreirajte <strong>index.md</strong> u ovom folderu.</p>
+                    <hr>
+                    <p><small>Trenutna putanja: ${folderPath}</small></p>
+                `;
             });
     </script>
 </body>
