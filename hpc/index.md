@@ -132,8 +132,7 @@ docker run --gpus all \
 import torch
 ```
 ### Uvek na početku koda definišite device ovako — ne hardcode-ujte 'cuda' ###
-```markdown
-{% highlight python %}
+```python
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Koristim: {device}")
 
@@ -173,7 +172,6 @@ for batch_x, batch_y in dataloader:
     loss = criterion(output, batch_y)
     loss.backward()
     optimizer.step()
-{% endhighlight %}
 ```
 
 Najčešća greška u PyTorch-u je kada je model na GPU-u ali podaci ostanu na CPU-u. Poruka greške tada izgleda ovako:
