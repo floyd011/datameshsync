@@ -146,7 +146,7 @@ Designing and implementing modern data architectures, with a strong focus on sca
 
 ## Database architect and database engineer/developer 
 
-25+ years of experience in Administrating and working mostly on highly transactional relational databases (SQL Server, PostgreSQL).
+30 years of experience in Administrating and working mostly on highly transactional relational databases (SQL Server, PostgreSQL).
 - Proficiency in ETL/ELT data pipeline with Debezium and Kafka to analytic databases Greenplum, Vertica, Hadoop.
 - Proficiency programming in Python.
 
