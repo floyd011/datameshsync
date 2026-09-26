@@ -303,6 +303,16 @@ Designing and implementing modern data architectures, with a strong focus on sca
 
 ## Professional Experience
 
+I’m a Senior DevOps/Infrastructure Engineer with a strong background in HPC, supercomputing, GPU infrastructure, and Linux systems. My current focus is on LLM/AI infrastructure and on integrating AI workloads into production environments.
+
+My role sits at the intersection of AI engineering and infrastructure. I work across the stack — from GPU hardware, resource management, and scheduling, through CUDA/runtime environments and containerization, to model serving and the LLM/RAG stack.
+
+I have hands-on experience with technologies including Slurm, Docker, Apptainer, Kubernetes/Run:ai, NVIDIA GPU infrastructure, monitoring, and automation. This allows me to look at an LLM workload not just from the application perspective, but from the perspective of how it should be deployed, scheduled, isolated, observed, and operated on a supercomputing platform.
+
+Within the project, I act as a technical bridge between the AI/data-science and infrastructure/platform teams, translating AI requirements into scalable, reliable, and operationally sustainable infrastructure. I’m particularly focused on GPU scheduling and utilization, resource isolation, CUDA/runtime integration, containerized workloads, persistent environments, model deployment, observability, and automation.
+
+In short, my focus is on making the entire path from AI workload to production infrastructure work as one coherent platform — from the GPU and scheduler up through the LLM stack.
+
 ### AI Agents & Multi-Agent Systems
 
 -Designed LangChain-based multi-agent pipelines for task decomposition, coordination, and reasoning. Focused on agent orchestration for knowledge-intensive tasks.
